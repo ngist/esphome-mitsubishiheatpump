@@ -56,7 +56,7 @@ def valid_uart(uart):
     elif CORE.is_rp2040:
         uarts = ["UART0", "UART1"]
     else:
-        raise NotImplementedError
+        raise NotImplementedError("Suport for " + CORE.target_platform + " is not implemented") 
 
     return cv.one_of(*uarts, upper=True)(uart)
 
