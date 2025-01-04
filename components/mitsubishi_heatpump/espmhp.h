@@ -17,6 +17,10 @@
 
 #define USE_CALLBACKS
 
+#ifdef USE_RP2040
+#define RP2040
+#endif
+
 #include "esphome.h"
 #include "esphome/components/select/select.h"
 #include "esphome/core/preferences.h"
