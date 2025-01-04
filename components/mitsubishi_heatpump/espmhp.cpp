@@ -14,7 +14,7 @@
  * License: BSD
  *
  * Requirements:
- * - https://github.com/SwiCago/HeatPump
+ * - https://github.com/ngist/HeatPump
  * - ESPHome 1.18.0 or greater
  */
 
