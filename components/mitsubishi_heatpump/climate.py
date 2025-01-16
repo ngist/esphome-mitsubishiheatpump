@@ -102,7 +102,7 @@ CONFIG_SCHEMA = climate.CLIMATE_SCHEMA.extend(
 @coroutine
 def to_code(config):
     # TODO: Maybe CONF_PLATFORM can be used directly instead of selecting? althoughh for ESP32 there will be a key error so maybe this is best... 
-    if CORE.is_rp2040
+    if CORE.is_rp2040:
         serial = HARDWARE_UART_TO_SERIAL[PLATFORM_RP2040][config[CONF_HARDWARE_UART]]
     else:
         serial = HARDWARE_UART_TO_SERIAL[PLATFORM_ESP8266][config[CONF_HARDWARE_UART]]
