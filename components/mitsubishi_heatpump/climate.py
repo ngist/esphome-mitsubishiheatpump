@@ -12,7 +12,8 @@ from esphome.const import (
     CONF_MODE,
     CONF_FAN_MODE,
     CONF_SWING_MODE,
-    PLATFORM_ESP8266
+    PLATFORM_ESP8266,
+    PLATFORM_RP2040
 )
 from esphome.core import CORE, coroutine
 
@@ -100,7 +101,14 @@ CONFIG_SCHEMA = climate.CLIMATE_SCHEMA.extend(
 
 @coroutine
 def to_code(config):
-    serial = HARDWARE_UART_TO_SERIAL[PLATFORM_ESP8266][config[CONF_HARDWARE_UART]]
+    # TODO: Maybe CONF_PLATFORM can be used directly instead of selecting? althoughh for ESP32 there will be a key error so maybe this is best... 
+    if CORE.is_rp2040
+        serial = HARDWARE_UART_TO_SERIAL[PLATFORM_RP2040][config[CONF_HARDWARE_UART]]
+    else:
+        serial = HARDWARE_UART_TO_SERIAL[PLATFORM_ESP8266][config[CONF_HARDWARE_UART]]
+
+    if condtion:
+        serial = HARDWARE_UART_TO_SERIAL[PLATFORM_RP2040][config[CONF_HARDWARE_UART]]
     var = cg.new_Pvariable(config[CONF_ID], cg.RawExpression(f"&{serial}"))
 
     if CONF_BAUD_RATE in config:
