@@ -107,8 +107,6 @@ def to_code(config):
     else:
         serial = HARDWARE_UART_TO_SERIAL[PLATFORM_ESP8266][config[CONF_HARDWARE_UART]]
 
-    if condtion:
-        serial = HARDWARE_UART_TO_SERIAL[PLATFORM_RP2040][config[CONF_HARDWARE_UART]]
     var = cg.new_Pvariable(config[CONF_ID], cg.RawExpression(f"&{serial}"))
 
     if CONF_BAUD_RATE in config:
