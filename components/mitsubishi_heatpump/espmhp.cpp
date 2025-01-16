@@ -684,10 +684,10 @@ void MitsubishiHeatPump::setup() {
     this->banner();
     ESP_LOGCONFIG(TAG, "Setting up UART...");
 
-    if (!this->verify_serial()) {
-        this->mark_failed();
-        return;
-    }
+    // if (!this->verify_serial()) {
+    //     this->mark_failed();
+    //     return;
+    // }
 
     ESP_LOGCONFIG(TAG, "Initializing new HeatPump object.");
     this->hp = new HeatPump();
